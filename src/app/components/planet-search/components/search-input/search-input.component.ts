@@ -39,8 +39,6 @@ export class SearchInputComponent implements OnChanges {
       this.onSearch.next({
         ...this.form.value,
         parameterType: isDefined(this.form.value.parameterType) ? Number(this.form.value.parameterType) : null,
-        from: isDefined(this.form.value.from) ? Number(this.form.value.from) : null,
-        to: isDefined(this.form.value.to) ? Number(this.form.value.to) : null
       });
     }
   }
