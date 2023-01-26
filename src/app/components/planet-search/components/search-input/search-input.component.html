@@ -1,0 +1,59 @@
+<form
+  class="items-container"
+  [formGroup]="form"
+>
+  <div
+    class="form-item"
+    [class.error]="form.get('name')?.errors"
+  >
+    <input
+      formControlName="name"
+      id="name"
+      placeholder="Название"
+    >
+  </div>
+  <div
+    class="form-item"
+    [class.error]="form.get('parameterType')?.errors"
+  >
+    <select
+      formControlName="parameterType"
+      id="parameterType"
+      placeholder="Тип фильтрации"
+    >
+      <option [ngValue]="null" selected disabled>Выберите параметр фильтрации</option>
+      <option
+        *ngFor="let option of filterOptions"
+        [value]="option.value"
+      >{{option.description}}</option>
+    </select>
+  </div>
+  <div
+    class="form-item"
+    [class.error]="form.get('from')?.errors"
+  >
+    <input
+      type="number"
+      formControlName="from"
+      id="from"
+      placeholder="От"
+    >
+  </div>
+  <div
+    class="form-item"
+    [class.error]="form.get('to')?.errors"
+  >
+    <input
+      type="number"
+      formControlName="to"
+      id="to"
+      placeholder="До"
+    >
+  </div>
+  <div class="form-item">
+    <button (click)="search()">Искать</button>
+  </div>
+  <div class="form-item">
+    <button (click)="clearFilters()">Очистить фильтр</button>
+  </div>
+</form>
