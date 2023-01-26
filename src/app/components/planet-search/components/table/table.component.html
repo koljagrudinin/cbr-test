@@ -1,20 +1,23 @@
 <table>
   <tr class="row header">
     <th>Название</th>
-    <th> Период оборота </th>
-    <th> Орбитальный период </th>
-    <th> Диаметр </th>
+    <th> Период оборота, дн </th>
+    <th> Орбитальный период, дн </th>
+    <th> Диаметр, км </th>
     <th> Климат </th>
     <th> Гравитация</th>
     <th> Поверхность </th>
-    <th> Уровень воды </th>
-    <th> Население </th>
-    <th> residents </th>
+    <th> Уровень воды, км </th>
+    <th> Население, особей </th>
+    <th> Резиденты </th>
     <th> Фильмы </th>
     <th> Добавлено</th>
     <th> Обновлено </th>
   </tr>
-  <tr class="row" *ngFor="let item of data">
+  <tr
+    class="row"
+    *ngFor="let item of data"
+  >
     <td><a href="{{item.url}}"> {{item.name}} </a></td>
     <td> {{item.rotation_period}} </td>
     <td> {{item.orbital_period}} </td>
@@ -24,8 +27,22 @@
     <td> {{item.terrain}} </td>
     <td> {{item.surface_water}} </td>
     <td> {{item.population}} </td>
-    <td> {{item.residents | json}} </td>
-    <td> {{item.films | json}} </td>
+    <td>
+      <div class="flex-column">
+        <a
+          *ngFor="let link of item.residents;  let i = index"
+          href="{{link}}"
+        >Ссылка&nbsp;{{i}}</a>
+      </div>
+    </td>
+    <td>
+      <div class="flex-column">
+        <a
+          *ngFor="let link of item.films;  let i = index"
+          href="{{link}}"
+        >Ссылка&nbsp;{{i}}</a>
+      </div>
+    </td>
     <td> {{item.created| date : 'short'}} </td>
     <td> {{item.edited | date: 'short'}} </td>
   </tr>
