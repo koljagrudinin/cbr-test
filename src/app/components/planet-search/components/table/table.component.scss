@@ -3,3 +3,12 @@
   top: 0px;
   background: white;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row:nth-child(even) {
+  background-color: lightgray;
+}
